@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAkamaiServiceProvider;
+namespace LaravelAkamai;
 
 use Illuminate\Support\ServiceProvider;
 
