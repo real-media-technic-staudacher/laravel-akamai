@@ -1,2 +1,10 @@
 # laravel-akamai
-Simple AKAMAI API integration for Laravel
+
+A simple AKAMAI API integration for Laravel
+
+## Installation / Setup
+
+`composer require rmts/laravel-akamai`
+
+## Example Usage
+
