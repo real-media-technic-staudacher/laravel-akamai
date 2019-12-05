@@ -13,9 +13,9 @@ class LaravelAkamaiServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //$this->app->singleton(xxx::class, function ($app) {
-        //    return new xxx(config('akamai'));
-        //});
+        $this->app->singleton('akamai', function ($app) {
+            return new AkamaiManager(new AkamaiConfiguration(config('akamai')));
+        });
     }
 
     private function publishConfiguration()
@@ -25,5 +25,10 @@ class LaravelAkamaiServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->mergeConfigFrom(__DIR__.'/../config/akamai.php', 'akamai');
+    }
+
+    public function provides()
+    {
+        return 'akamai';
     }
 }
