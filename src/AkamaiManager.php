@@ -4,16 +4,16 @@ namespace LaravelAkamai;
 
 class AkamaiManager
 {
-    /** @var AkamaiConfiguration $configuration */
-    private $configuration;
+    /** @var AkamaiClient $client */
+    private $client;
 
-    public function __construct(AkamaiConfiguration $configuration)
+    public function __construct(AkamaiClient $client)
     {
-        $this->configuration = $configuration;
+        $this->client = $client;
     }
 
-    public function test()
+    public function purgeUrl(string $url)
     {
-        dd($this);
+        $response = $this->client->get('/billing-usage/v1/products');
     }
 }
