@@ -24,7 +24,12 @@ class TestCase extends Orchestra
      */
     protected function getEnvironmentSetUp($app)
     {
-        //config()->set('backup.monitor_backups.0.health_checks', []);
+        config()->set('akamai', [
+            'baseUrl'     => env('AKAMAI_URL', 'https://api.akamai.com'),
+            'clientToken' => env('AKAMAI_CLIENT_TOKEN', 'AKAMAI_CLIENT_TOKEN not set'),
+            'accessToken' => env('AKAMAI_ACCESS_TOKEN', 'AKAMAI_ACCESS_TOKEN not set'),
+            'secret'      => env('AKAMAI_SECRET', 'AKAMAI_SECRET not set'),
+        ]);
         //Storage::fake('secondLocal');
     }
 }

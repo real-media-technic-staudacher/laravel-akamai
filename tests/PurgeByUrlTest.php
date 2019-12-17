@@ -3,11 +3,11 @@
 namespace LaravelAkamaiTest;
 
 use GuzzleHttp\Psr7\Response;
-use Illuminate\Contracts\Console\Kernel;
 use LaravelAkamai\AkamaiManager;
 
 class PurgeByUrlTest extends TestCase
 {
+
     /** @test */
     public function it_instantiate_akamai_manager_out_of_servicecontainer()
     {
@@ -69,17 +69,5 @@ class PurgeByUrlTest extends TestCase
         $this->assertFalse($response->success);
         $this->assertEquals('Invalid client token', $response->akamaiResponse->detail);
         $this->assertEquals(400, $response->code);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../../../../bootstrap/app.php';
-
-        $app->make(Kernel::class)->bootstrap();
-
-        return $app;
     }
 }
