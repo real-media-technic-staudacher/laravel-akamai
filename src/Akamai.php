@@ -8,6 +8,6 @@ class Akamai extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'akamai';
+        return AkamaiManager::class;
     }
 }

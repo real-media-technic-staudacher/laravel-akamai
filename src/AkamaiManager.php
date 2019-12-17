@@ -2,6 +2,9 @@
 
 namespace LaravelAkamai;
 
+use GuzzleHttp\Exception\ClientException;
+use LaravelAkamai\Responses\PurgeUrlResponse;
+
 class AkamaiManager
 {
     /** @var AkamaiClient $client */
@@ -12,8 +15,26 @@ class AkamaiManager
         $this->client = $client;
     }
 
-    public function purgeUrl(string $url)
+    public function fakeClient(array $expectedResponses): void
     {
-        $response = $this->client->get('/billing-usage/v1/products');
+        $this->client->fake($expectedResponses);
+    }
+
+    public function purgeUrl(string $url): PurgeUrlResponse
+    {
+        try {
+            $response = $this->client->post('/ccu/v3/invalidate/url', [
+                'body'    => json_encode([
+                    'objects' => [
+                        $url,
+                    ],
+                ]),
+                'headers' => ['Content-Type' => 'application/json'],
+            ]);
+
+            return PurgeUrlResponse::bySuccessfullResponse(json_decode((string)$response->getBody()));
+        } catch (ClientException $e) {
+            return PurgeUrlResponse::byClientExecption($e);
+        }
     }
 }
