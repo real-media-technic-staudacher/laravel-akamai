@@ -6,7 +6,7 @@ use GuzzleHttp\Psr7\Response;
 use Illuminate\Contracts\Console\Kernel;
 use LaravelAkamai\AkamaiManager;
 
-class PurgeByUrlTest extends \Illuminate\Foundation\Testing\TestCase
+class PurgeByUrlTest extends TestCase
 {
     /** @test */
     public function it_instantiate_akamai_manager_out_of_servicecontainer()
