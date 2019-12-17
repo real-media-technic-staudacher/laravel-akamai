@@ -10,6 +10,17 @@ Services available so far:
 
 `composer require rmts/laravel-akamai`
 
+`php artisan vendor:publish --provider="LaravelAkamai\\LaravelAkamaiServiceProvider"`
+
+Adapt in your .env: Find this in your AKAMI account
+
+```
+AKAMAI_URL=XYZ.purge.akamaiapis.net
+AKAMAI_CLIENT_TOKEN=<client-token>
+AKAMAI_ACCESS_TOKEN=<access-token>
+AKAMAI_SECRET=<client-secret>
+```
+
 ## Usage
 
 ### Purge by URL
