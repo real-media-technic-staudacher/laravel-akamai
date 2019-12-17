@@ -32,6 +32,9 @@
       "LaravelAkamaiTest\\": "tests"
     }
   },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
   "config": {
     "optimize-autoloader": true,
     "preferred-install": {
