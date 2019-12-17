@@ -12,6 +12,9 @@ jobs:
       - image: rmts/app
     steps:
       - checkout
+      - run:
+         name: Setup Laravel testing environment variables for CircleCI tests
+         command: cp .circleci/.env.testing .env
 
       - restore_cache:
           keys:
@@ -22,6 +25,19 @@ jobs:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
+
+      - run:
+         name: Generate application key
+         command: php artisan key:generate
+
+      - run:
+         name: Flush config cache
+         command: php artisan config:cache
+
+      - run:
+         name: Run Laravel Server
+         command: php artisan serve
+         background: true
 
       - run:
          name: Test 1 - Run Phpunit for Server-Side HTTP Requests & PHP Unit Testing
