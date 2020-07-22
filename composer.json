@@ -21,13 +21,6 @@
     "phpunit/phpunit": "^8.0",
     "orchestra/testbench": "^4.0"
   },
-  "repositories":
-    [
-        {
-            "type": "vcs",
-            "url": "git@github.com:real-media-technic-staudacher/AkamaiOPEN-edgegrid-php-client.git"
-        }
-    ],
   "autoload": {
     "psr-4": {
       "LaravelAkamai\\": "src"
