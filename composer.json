@@ -25,7 +25,7 @@
     [
         {
             "type": "vcs",
-            "url": "https://github.com/real-media-technic-staudacher/AkamaiOPEN-edgegrid-php-client"
+            "url": "git@github.com:real-media-technic-staudacher/AkamaiOPEN-edgegrid-php-client.git"
         }
     ],
   "autoload": {
