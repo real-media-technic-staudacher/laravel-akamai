@@ -11,12 +11,11 @@ jobs:
       matrix:
         php: [7.2, 7.3, 7.4]
         laravel: [7.*]
-        os: [ubuntu-18.04, ubuntu-20.04]
         include:
           -   laravel: 7.*
               testbench: 5.*
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - OS${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
     steps:
       -   name: Checkout code
