@@ -11,8 +11,8 @@
   "require": {
     "php": ">=7.2",
     "ext-json": "*",
-    "laravel/framework": "^7.0|^8.0",
-    "patriziotomato/edgegrid-client": "^1.1"
+    "laravel/framework": "^8.0",
+    "patriziotomato/edgegrid-client": "^1.2"
   },
   "require-dev": {
     "fzaninotto/faker": "^1.9.1",
