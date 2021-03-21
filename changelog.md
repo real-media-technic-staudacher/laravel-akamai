@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## v1.1.1
+## v3.1
 ### Changed
 - Allow to deactivate
+
+## v3.0.1
+### Changed
+- scoopOS v5 compatibility
 
 ## v1.1
 - Laravel v6 compatible
