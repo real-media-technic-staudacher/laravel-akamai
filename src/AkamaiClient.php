@@ -10,6 +10,10 @@ class AkamaiClient
 
     public function __construct(AkamaiConfiguration $configuration)
     {
+        if (!$configuration->baseUrl) {
+            return null;
+        }
+
         $this->client = new Client([
             'base_uri' => $configuration->baseUrl,
         ]);

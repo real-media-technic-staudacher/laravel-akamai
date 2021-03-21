@@ -3,6 +3,7 @@
 namespace LaravelAkamai;
 
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Support\Facades\Log;
 use LaravelAkamai\Responses\PurgeUrlResponse;
 
 class AkamaiManager
@@ -10,7 +11,7 @@ class AkamaiManager
     /** @var AkamaiClient $client */
     private $client;
 
-    public function __construct(AkamaiClient $client)
+    public function __construct(?AkamaiClient $client = null)
     {
         $this->client = $client;
     }
@@ -20,11 +21,17 @@ class AkamaiManager
         $this->client->fake($expectedResponses);
     }
 
-    public function purgeUrl(string $url): PurgeUrlResponse
+    public function purgeUrl(string $url): ?PurgeUrlResponse
     {
+        if (!$this->client) {
+            Log::warning('Akamai Purge API not activated');
+
+            return null;
+        }
+
         try {
             $response = $this->client->post('/ccu/v3/invalidate/url', [
-                'body'    => json_encode([
+                'body' => json_encode([
                     'objects' => [
                         $url,
                     ],
@@ -32,7 +39,7 @@ class AkamaiManager
                 'headers' => ['Content-Type' => 'application/json'],
             ]);
 
-            return PurgeUrlResponse::bySuccessfullResponse(json_decode((string)$response->getBody()));
+            return PurgeUrlResponse::bySuccessfullResponse(json_decode((string) $response->getBody()));
         } catch (ClientException $e) {
             return PurgeUrlResponse::byClientExecption($e);
         }

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## v1.1.1
+### Changed
+- Allow to deactivate
+
 ## v1.1
 - Laravel v6 compatible
 

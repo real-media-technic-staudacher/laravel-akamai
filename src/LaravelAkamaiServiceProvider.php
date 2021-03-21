@@ -14,6 +14,10 @@ class LaravelAkamaiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(AkamaiManager::class, function ($app) {
+            if (!config('akamai.active')) {
+                return new AkamaiManager(null);
+            }
+
             return new AkamaiManager(new AkamaiClient(new AkamaiConfiguration(config('akamai'))));
         });
     }
