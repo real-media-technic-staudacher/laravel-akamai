@@ -3,10 +3,17 @@
 namespace LaravelAkamaiTest;
 
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Config;
 use LaravelAkamai\AkamaiManager;
 
 class PurgeByUrlTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Config::set('akamai.active', true);
+    }
 
     /** @test */
     public function it_instantiate_akamai_manager_out_of_servicecontainer()
