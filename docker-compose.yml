@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    image: rmts/app:7.2-ubuntu18
+    image: rmts/app:7.4-ubuntu20
     volumes:
       - ./:/var/www/html:cached
       - ~/.ssh:/root/.ssh:cached
