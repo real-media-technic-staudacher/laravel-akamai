@@ -9,9 +9,9 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=7.2",
+    "php": ">=7.3",
     "ext-json": "*",
-    "laravel/framework": "^6.0|^7.0|^8.0",
+    "laravel/framework": "^7.0|^8.0",
     "patriziotomato/edgegrid-client": "^1.2"
   },
   "require-dev": {
