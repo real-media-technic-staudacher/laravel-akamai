@@ -9,7 +9,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.2",
     "ext-json": "*",
     "laravel/framework": "^10.0",
     "akamai-open/edgegrid-client": "^2.1"
