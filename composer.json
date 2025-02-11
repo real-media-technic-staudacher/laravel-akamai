@@ -11,7 +11,7 @@
   "require": {
     "php": ">=8.2",
     "ext-json": "*",
-    "laravel/framework": "^10.0",
+    "laravel/framework": "^10.0|^11.0",
     "akamai-open/edgegrid-client": "^2.1"
   },
   "require-dev": {
